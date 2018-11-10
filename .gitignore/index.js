@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const weather = require("weather-js");
 const Wiki = require("wikijs");
-token = "NTA3OTUzODI4NzU5NjAxMTgy.DsGzJw.zF82NMN4_45lUKzzjsLN53zsiQE";
+token = "";
 
 var prefix = ".";
 var moment = require("moment");
