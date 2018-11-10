@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const weather = require("weather-js");
 const Wiki = require("wikijs");
-token = "";
 
 var prefix = ".";
 var moment = require("moment");
@@ -23,6 +22,8 @@ var servercount = client.guilds.size;
 	console.log("--------------------------------------");
 console.log('[!]Connexion en cours... \n[!]Veuillez patienter! \n[!]Meg finit son thé :p \n[!]Les préfixes actuelle:  ' + prefix + "\n[!]Mentions = " + mention + "\n[!]Nombre de membres: " + memberCount + "\n[!]Nombre de serveurs: " + servercount);
 });
+
+client.login(process.env.TOKEN);
 
 client.on('message', message => {
 	if (message.content === ("Bonjour Meg")){
@@ -380,5 +381,3 @@ youtube_plugin.respond(message.content, message.channel , client);
 }        
 		
 });
-
-client.login(token)
