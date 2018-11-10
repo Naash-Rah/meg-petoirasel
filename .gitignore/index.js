@@ -8,13 +8,6 @@ var moment = require("moment");
 var location = require("location");
 var mention = "<@127202201532628992>";
 
-var yt = require("./youtube_plugin");
-var youtube_plugin = new yt();
-var AuthDetails = require("./auth.json");
-
-var memberCount = client.users.size;
-var servercount = client.guilds.size;
-
 client.on("ready", () => {
 var memberCount = client.users.size;
 var servercount = client.guilds.size;
@@ -23,7 +16,6 @@ var servercount = client.guilds.size;
 console.log('[!]Connexion en cours... \n[!]Veuillez patienter! \n[!]Meg finit son thé :p \n[!]Les préfixes actuelle:  ' + prefix + "\n[!]Mentions = " + mention + "\n[!]Nombre de membres: " + memberCount + "\n[!]Nombre de serveurs: " + servercount);
 });
 
-client.login(process.env.TOKEN);
 
 client.on('message', message => {
 	if (message.content === ("Bonjour Meg")){
@@ -58,15 +50,6 @@ client.on('message', message => {
 } else if (message.content === ("Merci, Meg.")){
 	message.reply('De rien.');	
 	
-		
-} else if(message.content.startsWith('!botname')){
-	client.user.setUsername(message.content.substr(8));
-} else if (message.content === "!stats") {
-    let m = " ";
-    m += 'Il y a actuellement  ${message.guild.channels.size} channels sur ce serveur. \n';
-    m += 'je suis en compagnie de ' + memberCount + ' membres.\n';
-    m += 'je suis présent dans ' + servercount + ' serveurs. \n';
-message.author.sendMessage(m).catch(console.log); 
 }
 else if (message.content.startsWith("!météo")){
     var location = message.content.substr(7);
@@ -375,9 +358,7 @@ else if (message.content.startsWith("!klir")) {
       }});
       }
 }
-
-else if (message.content.startsWith('!youtube')){
-youtube_plugin.respond(message.content, message.channel , client);
-}        
 		
 });
+
+client.login(process.env.TOKEN)
