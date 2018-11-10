@@ -119,6 +119,7 @@ else if (message.content.startsWith("!wiki")){
 }
 
             if(message.content.startsWith("!info")) {
+		    message.delete(message.author);
     var memberavatar = message.author.avatarURL
     var membername = message.author.username
        var mentionned = message.mentions.users.first();
@@ -181,12 +182,11 @@ else if (message.content.startsWith("!wiki")){
          }
         }
 }).catch(console.error);
-        }
+        }				
+	
 
-		
-		
-		
-		
+
+	
 else {
 	var memberavatar = message.author.avatarURL
     var membername = message.author.username	
@@ -223,6 +223,9 @@ else {
  });
 	
  }
+
+
+
 
  else {
 	var memberavatar = message.author.avatarURL
