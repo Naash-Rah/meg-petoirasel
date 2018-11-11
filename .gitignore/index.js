@@ -347,10 +347,10 @@ else if (message.content.startsWith("!klir")) {
       }
 }
 		
-});
+
 
 client.on('error', (err) => {
   console.log(err);
 };
-
+});
 client.login(process.env.TOKEN)
