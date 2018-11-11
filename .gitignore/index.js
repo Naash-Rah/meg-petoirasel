@@ -4,7 +4,6 @@ const Wiki = require("wikijs");
 
 var prefix = ".";
 var moment = require("moment");
-var location = require("location");
 var mention = "<@127202201532628992>";
 
 client.on("ready", () => {
