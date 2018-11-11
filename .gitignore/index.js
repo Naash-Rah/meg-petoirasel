@@ -141,7 +141,7 @@ else if (message.content.startsWith("!wiki")){
         var status = "Hors ligne";
       }
 
-    message.channel.sendMessage({
+    message.channel.send({
         embed: {
           type: 'rich',
           description: '',
@@ -312,7 +312,7 @@ else if(message.content.startsWith('!repeat')){
 else if (message.content.startsWith("!klir")) {
       let modRole = message.guild.roles.find("name", "clear");
             if(!message.guild.roles.exists("name", "clear")) {
-        return  message.channel.sendMessage("", {embed: {
+        return  message.channel.send("", {embed: {
           title: "Erreur:",
           color: 0xff0000,
           description: " :no_entry_sign: Le rôle nécessaire n'existe pas ! :no_entry_sign: ",
@@ -322,7 +322,7 @@ else if (message.content.startsWith("!klir")) {
         }}).catch(console.error);
       } 
       if(!message.member.roles.has(modRole.id)) {
-        return   message.channel.sendMessage("", {embed: {
+        return   message.channel.send("", {embed: {
           title: "Erreur:",
           color: 0xff0000,
           description: " :no_entry_sign: Vous n'avez pas la permissions d'utiliser cette commande ! :no_entry_sign: ",
@@ -333,7 +333,7 @@ else if (message.content.startsWith("!klir")) {
       }
     var args = message.content.substr(7);
       if(args.length === 0){
-        message.channel.sendMessage("", {embed: {
+        message.channel.send("", {embed: {
           title: "Erreur:",
           color: 0xff0000,
           description: " :x: Vous n'avez pas précisser le nombre :x: ",
@@ -350,7 +350,7 @@ else if (message.content.startsWith("!klir")) {
         msg = parseInt(args[1]);
       }
       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-      message.channel.sendMessage("", {embed: {
+      message.channel.send("", {embed: {
         title: "Success!",
         color: 0x06DF00,
         description: "Messages Suprimé!",
