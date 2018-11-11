@@ -306,7 +306,6 @@ else if(message.content.startsWith('!repeat')){
 	message.delete(message.author);
 	var repeat = message.content.substr(8);
 	message.channel.send(repeat);
-	console.log(data);
   
 }
 
