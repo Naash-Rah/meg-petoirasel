@@ -21,17 +21,6 @@ client.on('message', message => {
 	if (message.content === ("Bonjour Meg")){
 	message.reply('Bonjour');
 
-} else if (message.content === ("!channel")){
-	const data = client.channels.get(message.channel.id);
-	moment.locale("fr");
-	var temps = moment(data.createdTimestamp).format("LLLL");
-	console.log(temps)
-	message.reply("\n" + "```javascript" + "\n" + "Nom du channel : " + data.name + "\n" + "Type de channel : " + data.type + "\n"
-	+ "Channel ID : " + data.id + "\n" + "Topic : " + data.topic + "\n" + "Créer le : " + temps + "```" );
-	console.log("\n" + "**" + "Channel ID : " + data.id + "**" );
-	console.log(data);
-	
-	
 } else if (message.content === ("Merci Meg")){
 	message.reply('De rien.');
 	
@@ -118,8 +107,7 @@ else if (message.content.startsWith("!wiki")){
         
 }
 
-            if(message.content.startsWith("!info")) {
-		    message.delete(message.author);
+if(message.content.startsWith("!info")) {
     var memberavatar = message.author.avatarURL
     var membername = message.author.username
        var mentionned = message.mentions.users.first();
@@ -141,7 +129,7 @@ else if (message.content.startsWith("!wiki")){
         var status = "Hors ligne";
       }
 
-    message.channel.send({
+    message.channel.sendMessage({
         embed: {
           type: 'rich',
           description: '',
@@ -182,8 +170,7 @@ else if (message.content.startsWith("!wiki")){
          }
         }
 }).catch(console.error);
-        }				
-	
+        }
 
 
 	
@@ -301,11 +288,10 @@ else {
 	
  }
  
- 
 else if(message.content.startsWith('!repeat')){
 	message.delete(message.author);
 	var repeat = message.content.substr(8);
-	message.channel.send(repeat);
+	message.channel.sendMessage(repeat);
   
 }
 
