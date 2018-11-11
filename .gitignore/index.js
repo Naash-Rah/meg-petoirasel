@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const weather = require("weather-js");
 const Wiki = require("wikijs");
 
 var prefix = ".";
@@ -39,26 +38,6 @@ client.on('message', message => {
 } else if (message.content === ("Merci, Meg.")){
 	message.reply('De rien.');	
 	
-}
-else if (message.content.startsWith("!météo")){
-    var location = message.content.substr(7);
-    var unit = "C";
-    
-    try {
-        weather.find({search: location, degreeType: unit}, function(err, data) {
-            if(data.length === 0){
-                console.log(Date.now(), "DANGER", "\nJe ne peut pas trouvé d'information pour la méteo de cette localisation.");
-                message.reply("\n" + "Je ne peut pas trouvé d'information pour la méteo de cette localisation.");
-            } else {
-               const forecast = data[0];
-               console.log("\n\n** " + data.location.name + " - Maintenant **\n" + data.current.temperature + "°" + unit + " " + data.current.skytext + ", ressentie " + data.current.feelslike + "°, " + data.current.winddisplay + " Vent\n\n** Prévisions pour demain **\nHaut: " + data.forecast[1].high + "°, Bas: " + data.forecast[1].low + "° " + data.forecast[1].skytextday + " avec " + data.forecast[1].precip + "% de chance de precipitation.");
-               message.reply("\n" + "**" + data.location.name + "\nMaintenant : **\n" + data.current.temperature + "°" + unit + " " + data.current.skytext + ", ressentie " + data.current.feelslike + "°, " + data.current.winddisplay + " Vent\n\n**Prévisions pour demain :**\nHaut: " + data.forecast[1].high + "°, Bas: " + data.forecast[1].low + "° " + data.forecast[1].skytextday + " avec " + data.forecast[1].precip + "% de chance de precipitation.");
-            }
-        });
-    } catch(err) {
-        console.log(Date.now(), "ERREUR", "Weather.JS a rencontré une erreur");
-        message.reply("Idk pourquoi c'est cassé tbh :(");
-        }
 }
 
 else if (message.content.startsWith("!wiki")){
